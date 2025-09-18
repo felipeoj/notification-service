@@ -20,7 +20,7 @@ public class Notification {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(nullable = false)
+    @Column(name = "recipient_email", nullable = false)
     private String to;
 
     @Column(nullable = false)
@@ -43,5 +43,4 @@ public class Notification {
     private Boolean sent = false;
 
     private String errorMessage;
-
 }

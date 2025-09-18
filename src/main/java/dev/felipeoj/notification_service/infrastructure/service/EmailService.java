@@ -15,8 +15,10 @@ public class EmailService {
 
     private final JavaMailSender javaMailSender;
     private static final Logger log = LoggerFactory.getLogger(EmailService.class);
-    @Value("${spring.mail.from}")
-    private final String from;
+
+
+    @Value("${spring.mail.from:noreply@localhost}")
+    private String from;
 
     public boolean send(EmailNotificationDto dto){
         String to = (dto.getTo() != null && !dto.getTo().isBlank())
